@@ -76,6 +76,7 @@ let version = '1.0.0';
       const pluginXml = fs.readFileSync(pluginXmlPath, 'utf8');
       let newPluginXml = pluginXml.replaceAll('io/cordova/hellocordova', projectId.replace(/\./g, '/'));
       newPluginXml = newPluginXml.replaceAll('io.cordova.hellocordova', projectId);
+      newPluginXml = newPluginXml.replaceAll('io.cordova.hellocordova.provider', `${projectId}.provider`);
       fs.writeFileSync(pluginXmlPath, newPluginXml);
 
       // move java file to new package
